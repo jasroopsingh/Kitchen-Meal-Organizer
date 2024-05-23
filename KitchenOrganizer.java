@@ -1,4 +1,4 @@
-class KitchenOrganizer 
+public class KitchenOrganizer 
 {
     
 }
