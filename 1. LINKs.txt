@@ -1,0 +1,16 @@
+Userinput Vaildation
+  - https://stackoverflow.com/questions/3059333/validating-input-using-java-util-scanner
+  - https://stackoverflow.com/questions/2912817/how-to-use-scanner-to-accept-only-valid-int-as-input
+  - https://teamtreehouse.com/community/validating-user-input-java
+
+Memu - Switch Statements
+  - https://www.w3schools.com/java/java_switch.asp
+     - these are somewhat like if else Statements but with these u don't have to keep doing if else, if else. U assign 
+     UserInput to this then U can have different cases for userInput that will be displayed when userInput matches vaule of one of the cases 
+     
+     Break: as it sounds breaks out of the switch block
+     default: is code that will run if no matches to any of the cases is found
+
+Fun - Maybe for later
+  Delay
+   - https://stackoverflow.com/questions/24104313/how-do-i-make-a-delay-in-java
