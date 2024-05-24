@@ -37,7 +37,7 @@ public class KitchenOrganizer
     private static void printMenu() 
     {
         System.out.println("\n===========================================");
-        System.out.println("    Choose from one of the following options  ");
+        System.out.println("  Choose from one of the following options  ");
         System.out.println("===========================================");
         System.out.println("1. Add ingredient");
         System.out.println("2. Remove ingredient");
