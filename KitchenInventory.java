@@ -23,17 +23,20 @@ public class KitchenInventory
     public void sortByQuantity() 
     {
 
+
         Ingredient[] QuantityList;
         QuantityList = new Ingredient[5];
 
+        // Testing Lines:
         Quantity tomatoQuantity = new Quantity(10, "Jars");
         Ingredient tomato = new Ingredient("Tomatoes", tomatoQuantity);
+        QuantityList[0] = tomato;
 
-        QuantityList[1] = tomato;
 
-        System.out.println(QuantityList[1]);
-
-        
+        for (int b = 0; b < QuantityList.length; b++)
+        {
+            System.out.println(QuantityList[b]);
+        }
 
     }
 
