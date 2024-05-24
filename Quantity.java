@@ -7,11 +7,14 @@ public class Quantity
     private double amount; // Amount of the ingredient
     private String unit; // Unit of measurement for the ingredient
 
+
+    // Example: Quantity mushroom = new Quantity(10, "Cans");
     public Quantity(double amount, String unit) 
     {
         this.amount = amount; // Initialize amount
         this.unit = unit; // Initialize unit
     }
+    
 
     public double getAmount() { return amount; }
 
