@@ -18,29 +18,17 @@ public class KitchenOrganizer
             userInput = scanner.nextLine();
 
             switch (userInput) {
-                case "1":
-                    addIngredient(scanner); // Add an ingredient to the inventory
-                    break;
-                case "2":
-                    removeIngredient(scanner); // Remove an ingredient from the inventory
-                    break;
-                case "3":
-                    inventory.sortByName(); // Sort ingredients by name
-                    break;
-                case "4":
-                    inventory.sortByQuantity(); // Sort ingredients by quantity
-                    break;
-                case "5":
-                    addMeal(scanner); // Add a meal with ingredients
-                    break;
-                case "6":
-                    compareWithMeal(scanner); // Compare inventory with meal ingredients
-                    break;
-                case "7":
+                case "1" -> addIngredient(scanner); // Add an ingredient to the inventory
+                case "2" -> removeIngredient(scanner); // Remove an ingredient from the inventory
+                case "3" -> inventory.sortByName(); // Sort ingredients by name
+                case "4" -> inventory.sortByQuantity(); // Sort ingredients by quantity
+                case "5" -> addMeal(scanner); // Add a meal with ingredients
+                case "6" -> compareWithMeal(scanner); // Compare inventory with meal ingredients
+                case "7" -> {
                     System.out.println("Exiting..."); // Exit the application
                     return;
-                default:
-                    System.out.println("Invalid option, please try again. Enter Number corresponding for the Memu option."); // Handle invalid option
+                }
+                default -> System.out.println("Invalid option, please try again. Enter Number corresponding for the Memu option."); // Handle invalid option
             }
         }
     }
@@ -49,15 +37,15 @@ public class KitchenOrganizer
     private static void printMenu() 
     {
         System.out.println("\n===========================================");
-        System.out.println("  🌟 Choose from one of the following options 🌟");
+        System.out.println("    Choose from one of the following options  ");
         System.out.println("===========================================");
-        System.out.println("1. ➕  Add ingredient");
-        System.out.println("2. ➖  Remove ingredient");
-        System.out.println("3. 🔤  Sort ingredients by name");
-        System.out.println("4. 🔢  Sort ingredients by quantity");
-        System.out.println("5. 🍽️  Add meal");
-        System.out.println("6. 🔍  Compare ingredients with meal");
-        System.out.println("7. 🚪  Exit");
+        System.out.println("1. Add ingredient");
+        System.out.println("2. Remove ingredient");
+        System.out.println("3. Sort ingredients by name");
+        System.out.println("4. Sort ingredients by quantity");
+        System.out.println("5. Add meal");
+        System.out.println("6. Compare ingredients with meal");
+        System.out.println("7. Exit");
         System.out.println("===========================================\n");
     }
     
