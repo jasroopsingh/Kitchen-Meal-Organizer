@@ -14,3 +14,13 @@ Memu - Switch Statements
 Fun - Maybe for later
   Delay
    - https://stackoverflow.com/questions/24104313/how-do-i-make-a-delay-in-java
+
+
+Array Lists
+  - https://www.geeksforgeeks.org/list-interface-java-examples/
+  - https://www.geeksforgeeks.org/list-interface-java-examples/
+  - Sortting Array Lists: https://www.geeksforgeeks.org/arrays-sort-in-java-with-examples/
+                          https://www.geeksforgeeks.org/comparator-interface-java/
+                          https://www.baeldung.com/java-8-comparator-comparing
+  Return Arraylist: https://stackoverflow.com/questions/11682212/java-returning-method-which-returns-arraylist
+https://www.w3schools.com/java/java_operators.asp

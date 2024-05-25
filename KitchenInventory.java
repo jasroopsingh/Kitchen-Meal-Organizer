@@ -1,23 +1,19 @@
+import java.util.List;
+
 public class KitchenInventory 
 {
     //contain functions to sort by name/quantity
     //compare for req ingredients
 
     // Adds an ingredient to the inventory
-    public void addIngredient() {}
+    public void addIngredient() { }
 
     // Removes a specified quantity of an ingredient from the inventory
-    public void removeIngredient() {}
+    public void removeIngredient() { }
 
     // Sorts ingredients by name and displays them
-    public void sortByName() 
-    {
-        Ingredient[] NameList;
-        NameList = new Ingredient[5];
+    public void sortByName() { }
 
-
-
-    }
 
     // Sorts ingredients by quantity and displays them
     public void sortByQuantity() 
@@ -41,7 +37,8 @@ public class KitchenInventory
     }
 
     // Displays a list of ingredients
-    public void displayIngredients() {}
+    public void displayIngredients(List<Ingredient> ingredientList) 
+    { for (Ingredient ingredient : ingredientList)  { System.out.println(ingredient);} } // Print ingredient details
 
     // Compares the inventory with the ingredients required for a meal
     public void compareIngredients(Meal meal) {}
