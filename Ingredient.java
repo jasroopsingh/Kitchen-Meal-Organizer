@@ -13,12 +13,13 @@ public class Ingredient
         this.quantity = quantity; // Initialize quantity
     }
 
-
     // Returns the name of the ingredient
     public String getName() {
         return name;
     }
 
+
+    
     // Returns the quantity of the ingredient
     public Quantity getQuantity() {
         return quantity;
