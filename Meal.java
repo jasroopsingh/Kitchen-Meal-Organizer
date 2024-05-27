@@ -15,8 +15,8 @@ public class Meal
     // Returns the name of the meal
     public String getName() { return name; }
 
-    // Adds an ingredient to the meal's required ingredients
-    public void addIngredient(Ingredient ingredient) { requiredIngredients.add(ingredient); } // Add ingredient to list
+    // Adds an ingredient to the meal's required ingredients list
+    public void addIngredient(Ingredient ingredient) { requiredIngredients.add(ingredient); } // Add ingredient to required ingredients arraylist
     
 
     // Returns the list of required ingredients

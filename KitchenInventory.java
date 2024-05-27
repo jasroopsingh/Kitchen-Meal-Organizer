@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -6,34 +7,23 @@ public class KitchenInventory
     //contain functions to sort by name/quantity
     //compare for req ingredients
 
-    static void bubbleSort(Quantity list[], int n)
-    {
-        int count = 0;
-
-        for (int i = 0; i < n-1; i++)
-            if(list[i].getAmount() > list[i + 1].getAmount())
-            {
-                double temp = list[i].getAmount();
-                Quantity temp2 = null;
-                list[i] = list[i + 1];
-                temp2 = list[i + 1];
-                    count = count + 1;
-
-            }
-
-            if (count == 0)
-                return;
-            bubbleSort(list, 5-1);
+    // Adds an ingredient to the inventory
+    public void addIngredient(Ingredient ingredient) 
+    { 
+        ingredients.add(ingredient);
     }
 
-    // Adds an ingredient to the inventory
-    public void addIngredient() { }
-
     // Removes a specified quantity of an ingredient from the inventory
-    public void removeIngredient() { }
+    public void removeIngredient() 
+    { 
+
+    }
 
     // Sorts ingredients by name and displays them
-    public void sortByName() { }
+    public void sortByName() 
+    {
+
+     }
 
 
     // Sorts ingredients by quantity and displays them
@@ -41,11 +31,10 @@ public class KitchenInventory
     {
 
 
-        Quantity[] QuantityList;
-        QuantityList = new Quantity[5];
+        Ingredient[] QuantityList;
+        QuantityList = new Ingredient[5];
 
-        // Testing Lines (Tomato, Potato, Radish):
-        //Tomato
+        // Testing Lines:
         Quantity tomatoQuantity = new Quantity(10, "Jars");
         Ingredient tomato = new Ingredient("Tomatoes", tomatoQuantity);
         QuantityList[0] = tomatoQuantity;
@@ -69,7 +58,6 @@ public class KitchenInventory
         {
             System.out.println(QuantityList[b]);
         }
-
     }
 
     // Displays a list of ingredients
@@ -77,7 +65,10 @@ public class KitchenInventory
     { for (Ingredient ingredient : ingredientList)  { System.out.println(ingredient);} } // Print ingredient details
 
     // Compares the inventory with the ingredients required for a meal
-    public void compareIngredients(Meal meal) {}
+    public void compareIngredients(Meal meal) 
+    {
+
+    }
 
     
 
