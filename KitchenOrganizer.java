@@ -50,10 +50,24 @@ public class KitchenOrganizer
     }
     
     // Handles adding an ingredient to the inventory
-    private static void addIngredient(Scanner scanner) {}
+    private static void addIngredient(Scanner scanner) 
+    {
+        System.out.println("Enter Name of Ingredient: ");
+        String name = scanner.nextLine();
+        System.out.println("Enter Quantity: ");
+        Double quantity = Double.parseDouble(scanner.nextLine());
+        System.out.println("Enter Unit: ");
+        String unit = scanner.nextLine();
+
+        KitchenInventory.addIngredient(new ingredient(name, new Quantity(quantity, unit)));
+
+    }
 
     // Handles removing an ingredient from the inventory
-    private static void removeIngredient(Scanner scanner) {}
+    private static void removeIngredient(Scanner scanner) 
+    {
+
+    }
 
     // Handles adding a meal with multiple ingredients
     private static void addMeal(Scanner scanner) {} //done to exit adding meal. Use true loop with break statement?
