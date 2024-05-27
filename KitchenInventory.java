@@ -1,9 +1,30 @@
 import java.util.List;
 
+
 public class KitchenInventory 
 {
     //contain functions to sort by name/quantity
     //compare for req ingredients
+
+    static void bubbleSort(Quantity list[], int n)
+    {
+        int count = 0;
+
+        for (int i = 0; i < n-1; i++)
+            if(list[i].getAmount() > list[i + 1].getAmount())
+            {
+                double temp = list[i].getAmount();
+                Quantity temp2 = null;
+                list[i] = list[i + 1];
+                temp2 = list[i + 1];
+                    count = count + 1;
+
+            }
+
+            if (count == 0)
+                return;
+            bubbleSort(list, 5-1);
+    }
 
     // Adds an ingredient to the inventory
     public void addIngredient() { }
@@ -20,15 +41,30 @@ public class KitchenInventory
     {
 
 
-        Ingredient[] QuantityList;
-        QuantityList = new Ingredient[5];
+        Quantity[] QuantityList;
+        QuantityList = new Quantity[5];
 
-        // Testing Lines:
+        // Testing Lines (Tomato, Potato, Radish):
+        //Tomato
         Quantity tomatoQuantity = new Quantity(10, "Jars");
         Ingredient tomato = new Ingredient("Tomatoes", tomatoQuantity);
-        QuantityList[0] = tomato;
+        QuantityList[0] = tomatoQuantity;
 
+        //Potato
+        Quantity potatoQuantity = new Quantity(15, "Mashes");
+        Ingredient potato = new Ingredient("Potatoes", potatoQuantity);
+        QuantityList[1] = potatoQuantity;
 
+        //Radish
+        Quantity radishQuantity = new Quantity(5, "Bowls");
+        Ingredient radish = new Ingredient("Sliced Radish", radishQuantity);
+        QuantityList[2] = radishQuantity;
+
+        //Bubble sort test
+        
+        // End of testing code
+
+        System.out.println("Ingredients Sorted:");
         for (int b = 0; b < QuantityList.length; b++)
         {
             System.out.println(QuantityList[b]);
