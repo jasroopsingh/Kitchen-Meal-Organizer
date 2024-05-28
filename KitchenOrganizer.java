@@ -59,7 +59,7 @@ public class KitchenOrganizer
         System.out.println("Enter Unit: ");
         String unit = scanner.nextLine();
 
-        KitchenInventory.addIngredient(new ingredient(name, new Quantity(quantity, unit)));
+        //KitchenInventory.addIngredient(new ingredient(name, new Quantity(quantity, unit)));
 
     }
 

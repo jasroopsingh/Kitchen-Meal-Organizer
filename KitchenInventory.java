@@ -10,7 +10,7 @@ public class KitchenInventory
     // Adds an ingredient to the inventory
     public void addIngredient(Ingredient ingredient) 
     { 
-        ingredients.add(ingredient);
+        //ingredients.add(ingredient);
     }
 
     // Removes a specified quantity of an ingredient from the inventory
@@ -31,8 +31,8 @@ public class KitchenInventory
     {
 
 
-        Ingredient[] QuantityList;
-        QuantityList = new Ingredient[5];
+        Quantity[] QuantityList;
+        QuantityList = new Quantity[5];
 
         // Testing Lines:
         Quantity tomatoQuantity = new Quantity(10, "Jars");
