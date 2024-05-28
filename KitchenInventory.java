@@ -52,32 +52,32 @@ public class KitchenInventory
         QuantityList = new Quantity[5];
 
         // Testing Lines:
-        Quantity tomatoQuantity = new Quantity(10, "Jars");
+        Quantity tomatoQuantity = new Quantity(10, "Tomatoes");
         Ingredient tomato = new Ingredient("Tomatoes", tomatoQuantity);
         QuantityList[0] = tomatoQuantity;
 
         //Potato
-        Quantity potatoQuantity = new Quantity(15, "Mashes");
+        Quantity potatoQuantity = new Quantity(15, "Potatoes");
         Ingredient potato = new Ingredient("Potatoes", potatoQuantity);
         QuantityList[1] = potatoQuantity;
 
         //Radish
-        Quantity radishQuantity = new Quantity(5, "Bowls");
+        Quantity radishQuantity = new Quantity(5, "Radishes");
         Ingredient radish = new Ingredient("Sliced Radish", radishQuantity);
         QuantityList[2] = radishQuantity;
 
         //Carrot
-        Quantity carrotQuantity = new Quantity(5, "Bags");
+        Quantity carrotQuantity = new Quantity(5, "Carrots");
         QuantityList[3] = carrotQuantity;
 
         //Ginger
-        Quantity gingerQuantity = new Quantity(5, "Pouches");
+        Quantity gingerQuantity = new Quantity(5, "Ginger Roots");
         QuantityList[4] = gingerQuantity;
 
         //Bubble sort test
         bubbleSort(QuantityList, 5);
 
-        System.out.println("Ingredients Sorted:");
+        System.out.println("Ingredients Sorted (Low to High):");
         for (int b = 0; b < QuantityList.length; b++)
         {
             System.out.println(QuantityList[b]);
