@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -7,6 +6,24 @@ public class KitchenInventory
 {
     //contain functions to sort by name/quantity
     //compare for req ingredients
+    static void bubbleSort(Quantity list[], int n)
+    {
+        int count = 0;
+
+        for (int i = 0; i < n-1; i++)
+            if(list[i].getAmount() > list[i + 1].getAmount())
+            {
+                Quantity temp = list[i];
+                list[i] = list[i + 1];
+                list[i + 1] = temp;
+                    count = count + 1;
+
+            }
+
+            if (count == 0)
+                return;
+            bubbleSort(list, n-1);
+    }
 
     private List<Ingredient> ingredients;
 
@@ -18,7 +35,7 @@ public class KitchenInventory
     // Adds an ingredient to the inventory
     public void addIngredient(Ingredient ingredient) 
     { 
-        ingredients.add(ingredient);
+        //ingredients.add(ingredient);
     }
 
     // Removes a specified quantity of an ingredient from the inventory
@@ -46,9 +63,9 @@ public class KitchenInventory
     public void sortByQuantity() 
     {
 
-
-        Ingredient[] QuantityList;
-        QuantityList = new Ingredient[5];
+        //List holding the quantity of the ingredients
+        Quantity[] QuantityList;
+        QuantityList = new Quantity[5];
 
         // Testing Lines:
         Quantity tomatoQuantity = new Quantity(10, "Jars");
@@ -65,15 +82,24 @@ public class KitchenInventory
         Ingredient radish = new Ingredient("Sliced Radish", radishQuantity);
         QuantityList[2] = radishQuantity;
 
+        //Carrot
+        Quantity carrotQuantity = new Quantity(5, "Bags");
+        QuantityList[3] = carrotQuantity;
+
+        //Ginger
+        Quantity gingerQuantity = new Quantity(5, "Pouches");
+        QuantityList[4] = gingerQuantity;
+
         //Bubble sort test
-        
-        // End of testing code
+        bubbleSort(QuantityList, 5);
 
         System.out.println("Ingredients Sorted:");
         for (int b = 0; b < QuantityList.length; b++)
         {
             System.out.println(QuantityList[b]);
         }
+        // End of testing code
+
     }
 
     // Displays a list of ingredients
