@@ -1,11 +1,19 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 
 public class KitchenInventory 
 {
     //contain functions to sort by name/quantity
     //compare for req ingredients
+
+    private List<Ingredient> ingredients;
+
+    public KitchenInventory()
+    {
+        this.ingredients = new ArrayList<>();
+    }
 
     // Adds an ingredient to the inventory
     public void addIngredient(Ingredient ingredient) 
@@ -16,6 +24,14 @@ public class KitchenInventory
     // Removes a specified quantity of an ingredient from the inventory
     public void removeIngredient() 
     { 
+        Ingredient[] IngredientList = new Ingredient[5];
+        Scanner scanner = new Scanner(System.in); // Scanner for user input
+        System.out.println("Which ingredient would you like to remove? ");
+        String input = scanner.nextLine(); // variable for storing input
+        IngredientList.remove(input);
+
+
+        scanner.close();
 
     }
 
