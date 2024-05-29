@@ -28,6 +28,7 @@ public class KitchenInventory
             bubbleSort(list, n-1);
     }
 
+
     private List<Ingredient> ingredients;
 
     public KitchenInventory()
@@ -55,14 +56,6 @@ public class KitchenInventory
 
     }
 
-    // Sorts ingredients by name and displays them
-    public void sortByName() 
-    {
-
-
-    }
-
-
     // Sorts ingredients by quantity and displays them
     public void sortByQuantity() 
     {
@@ -71,8 +64,9 @@ public class KitchenInventory
         Quantity[] QuantityList;
         QuantityList = new Quantity[5];
 
-        
+
         // Testing Lines:
+        // These lines declare an ingredient and their quantity.
         Quantity tomatoQuantity = new Quantity(10, "Tomatoes");
         Ingredient tomato = new Ingredient("Tomatoes", tomatoQuantity);
         QuantityList[0] = tomatoQuantity;
@@ -109,6 +103,16 @@ public class KitchenInventory
         }
         // End of testing code
 
+    }
+
+
+        // Sorts ingredients by name and displays them
+    public void sortByName() 
+    {
+        Ingredient[] sortIngredients = new Ingredient[5];
+
+        
+    
     }
 
     // Displays a list of ingredients
