@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -6,6 +7,8 @@ public class KitchenInventory
 {
     //contain functions to sort by name/quantity
     //compare for req ingredients
+    
+    //Bubble sort for sorting ingredients by quantity.
     static void bubbleSort(Quantity list[], int n)
     {
         int count = 0;
@@ -45,7 +48,7 @@ public class KitchenInventory
         Scanner scanner = new Scanner(System.in); // Scanner for user input
         System.out.println("Which ingredient would you like to remove? ");
         String input = scanner.nextLine(); // variable for storing input
-        IngredientList.remove(input);
+        //IngredientList.remove(input);
 
 
         scanner.close();
@@ -56,7 +59,8 @@ public class KitchenInventory
     public void sortByName() 
     {
 
-     }
+
+    }
 
 
     // Sorts ingredients by quantity and displays them
@@ -67,32 +71,37 @@ public class KitchenInventory
         Quantity[] QuantityList;
         QuantityList = new Quantity[5];
 
+        
         // Testing Lines:
         Quantity tomatoQuantity = new Quantity(10, "Tomatoes");
         Ingredient tomato = new Ingredient("Tomatoes", tomatoQuantity);
         QuantityList[0] = tomatoQuantity;
+
 
         //Potato
         Quantity potatoQuantity = new Quantity(15, "Potatoes");
         Ingredient potato = new Ingredient("Potatoes", potatoQuantity);
         QuantityList[1] = potatoQuantity;
 
+
         //Radish
         Quantity radishQuantity = new Quantity(5, "Radishes");
         Ingredient radish = new Ingredient("Sliced Radish", radishQuantity);
         QuantityList[2] = radishQuantity;
 
+
         //Carrot
         Quantity carrotQuantity = new Quantity(5, "Carrots");
         QuantityList[3] = carrotQuantity;
+
 
         //Ginger
         Quantity gingerQuantity = new Quantity(5, "Ginger Roots");
         QuantityList[4] = gingerQuantity;
 
-        //Bubble sort test
-        bubbleSort(QuantityList, 5);
 
+        //Bubble Sorts QUANTITY from low to high amount. Then prints the sorted list.
+        bubbleSort(QuantityList, 5);
         System.out.println("Ingredients Sorted (Low to High):");
         for (int b = 0; b < QuantityList.length; b++)
         {
