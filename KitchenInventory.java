@@ -135,7 +135,23 @@ public class KitchenInventory
         Ingredient ginger = new Ingredient("Ginger root", gingerQuantity);
         sortIngredients[4] = ginger;
 
-        //List.sort(sortIngredients);
+
+        //sorting by name test
+        int n = sortIngredients.length;
+        Ingredient temp = null;
+
+        for(int i = 0; i < n; i++)
+        {
+            for(int j = i + 1; j < n; j++)
+            {
+                if (sortIngredients[i].compareTo(sortIngredients[j]) > 0) //Compare to cannot compare ingredients
+                {
+                    temp = sortIngredients[i];
+                    sortIngredients[i] = sortIngredients[j];
+                    sortIngredients[j] = temp;
+                }
+            }
+        }
 
         
     
