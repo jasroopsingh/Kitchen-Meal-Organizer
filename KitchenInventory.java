@@ -3,6 +3,7 @@ import java.util.List;
 import java.util.Scanner;
 
 
+
 public class KitchenInventory 
 {
     //contain functions to sort by name/quantity
@@ -39,7 +40,7 @@ public class KitchenInventory
     // Adds an ingredient to the inventory
     public void addIngredient(Ingredient ingredient) 
     { 
-        //ingredients.add(ingredient);
+        ingredients.add(ingredient);
     }
 
     // Removes a specified quantity of an ingredient from the inventory
@@ -79,18 +80,20 @@ public class KitchenInventory
 
 
         //Radish
-        Quantity radishQuantity = new Quantity(5, "Radishes");
+        Quantity radishQuantity = new Quantity(2, "Radishes");
         Ingredient radish = new Ingredient("Sliced Radish", radishQuantity);
         QuantityList[2] = radishQuantity;
 
 
         //Carrot
-        Quantity carrotQuantity = new Quantity(5, "Carrots");
+        Quantity carrotQuantity = new Quantity(4, "Carrots");
+        Ingredient carrot = new Ingredient("Carrot", carrotQuantity);
         QuantityList[3] = carrotQuantity;
 
 
         //Ginger
         Quantity gingerQuantity = new Quantity(5, "Ginger Roots");
+        Ingredient ginger = new Ingredient("Ginger root", gingerQuantity);
         QuantityList[4] = gingerQuantity;
 
 
@@ -110,6 +113,33 @@ public class KitchenInventory
     public void sortByName() 
     {
         Ingredient[] sortIngredients = new Ingredient[5];
+
+        // Testing lines, these lines declare an ingredient and their quality
+        Quantity tomatoQuantity = new Quantity(10, "Tomatoes");
+        Ingredient tomato = new Ingredient("Tomatoes", tomatoQuantity);
+        sortIngredients[0] = tomato;
+
+        //Potato
+        Quantity potatoQuantity = new Quantity(15, "Potatoes");
+        Ingredient potato = new Ingredient("Potatoes", potatoQuantity);
+        sortIngredients[1] = potato;      
+
+        //Radish
+        Quantity radishQuantity = new Quantity(5, "Radishes");
+        Ingredient radish = new Ingredient("Sliced Radish", radishQuantity);
+        sortIngredients[2] = radish;
+
+        //Carrot
+        Quantity carrotQuantity = new Quantity(5, "Carrots");
+        Ingredient carrot = new Ingredient("Carrot", carrotQuantity);
+        sortIngredients[3] = carrot;
+
+        //Ginger
+        Quantity gingerQuantity = new Quantity(5, "Ginger Roots");
+        Ingredient ginger = new Ingredient("Ginger root", gingerQuantity);
+        sortIngredients[4] = ginger;
+
+        //List.sort(sortIngredients);
 
         
     
