@@ -4,7 +4,7 @@ import java.util.Scanner; // get user input
 
 public class KitchenOrganizer 
 {
-    private static KitchenInventory inventory = new KitchenInventory(); // Inventory instance to manage ingredients (+/-)
+    static KitchenInventory inventory = new KitchenInventory(); // Inventory instance to manage ingredients (+/-)
     private static Meal meal; // Meal instance to store meal
 
     public static void main(String[] args) 
@@ -59,21 +59,23 @@ public class KitchenOrganizer
         System.out.println("Enter Unit: ");
         String unit = scanner.nextLine();
 
-        //KitchenInventory.addIngredient(new ingredient(name, new Quantity(quantity, unit)));
+        inventory.addIngredient(new Ingredient(name, new Quantity(quantity, unit)));
 
+        inventory.displayIngredients();
     }
 
     // Handles removing an ingredient from the inventory
     private static void removeIngredient(Scanner scanner) 
     {
-
+        
     }
 
     // Handles adding a meal with multiple ingredients
-    private static void addMeal(Scanner scanner) {} //done to exit adding meal. Use true loop with break statement?
+    private static void addMeal(Scanner scanner) { } //done to exit adding meal. Use true loop with break statement?
 
     // calls fucntion in inverntory that will compare ingredients in inventory with ones required for meal
-    private static void compareWithMeal(Scanner scanner) {
+    private static void compareWithMeal(Scanner scanner) 
+    {
         if (meal == null) { // Check if any meal has been added yet
             System.out.println("No meal added yet.");
             return;

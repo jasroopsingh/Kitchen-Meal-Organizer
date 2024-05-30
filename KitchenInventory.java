@@ -1,7 +1,5 @@
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
-
 
 
 public class KitchenInventory 
@@ -32,29 +30,18 @@ public class KitchenInventory
 
     private List<Ingredient> ingredients;
 
-    public KitchenInventory()
-    {
-        this.ingredients = new ArrayList<>();
-    }
+    public KitchenInventory() { this.ingredients = new ArrayList<>(); }
 
     // Adds an ingredient to the inventory
     public void addIngredient(Ingredient ingredient) 
     { 
-        ingredients.add(ingredient);
+        //ingredients.add(ingredient);
     }
 
     // Removes a specified quantity of an ingredient from the inventory
-    public void removeIngredient() 
+    public void removeIngredient(String name, double amount) 
     { 
-        Ingredient[] IngredientList = new Ingredient[5];
-        Scanner scanner = new Scanner(System.in); // Scanner for user input
-        System.out.println("Which ingredient would you like to remove? ");
-        String input = scanner.nextLine(); // variable for storing input
-        //IngredientList.remove(input);
-
-
-        scanner.close();
-
+        
     }
 
     // Sorts ingredients by quantity and displays them
@@ -162,8 +149,13 @@ public class KitchenInventory
     }
 
     // Displays a list of ingredients
-    public void displayIngredients(List<Ingredient> ingredientList) 
-    { for (Ingredient ingredient : ingredientList)  { System.out.println(ingredient);} } // Print ingredient details
+    public void displayIngredients() 
+    {
+        System.out.println("Ingredients in the inventory:");
+        for (Ingredient ingredient : ingredients) {
+            System.out.println(ingredient.getName() + " - " + ingredient.getQuantity().getAmount() + " " + ingredient.getQuantity().getUnit());
+        }
+    }
 
     // Compares the inventory with the ingredients required for a meal
     public void compareIngredients(Meal meal) 

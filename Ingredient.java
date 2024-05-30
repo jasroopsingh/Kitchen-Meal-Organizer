@@ -8,7 +8,8 @@ public class Ingredient
     private String name; // Name of the ingredient
     private Quantity quantity; // Quantity of the ingredient
 
-    public Ingredient(String name, Quantity quantity) {
+    public Ingredient(String name, Quantity quantity) 
+    {
         this.name = name; // Initialize name
         this.quantity = quantity; // Initialize quantity
     }
