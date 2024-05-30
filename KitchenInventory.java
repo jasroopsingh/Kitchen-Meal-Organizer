@@ -35,7 +35,16 @@ public class KitchenInventory
     // Adds an ingredient to the inventory
     public void addIngredient(Ingredient ingredient) 
     { 
-        //ingredients.add(ingredient);
+        for (Ingredient existingIngredient : ingredients) {
+            if (existingIngredient.getName().equals(ingredient.getName()) &&
+                existingIngredient.getQuantity().getUnit().equals(ingredient.getQuantity().getUnit())) 
+
+                {
+                    existingIngredient.getQuantity().add(ingredient.getQuantity().getAmount()); // Update quantity if ingredient exists with same name/unit stored type
+                    return;
+                }
+        }
+        ingredients.add(ingredient); // Add new ingredient
     }
 
     // Removes a specified quantity of an ingredient from the inventory
