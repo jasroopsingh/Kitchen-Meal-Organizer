@@ -15,20 +15,17 @@ public class Ingredient
     }
 
     // Returns the name of the ingredient
-    public String getName() {
-        return name;
-    }
-
-
+    public String getName() { return name; }
     
     // Returns the quantity of the ingredient
-    public Quantity getQuantity() {
-        return quantity;
-    }
+    public Quantity getQuantity() { return quantity; }
 
     // Returns a string representation of the ingredient
     @Override
-    public String toString() {
-        return name + ": " + quantity;
+    public String toString() { return name + ": " + quantity; }
+
+    public void remove(Ingredient ingredient) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'remove'");
     }
 }

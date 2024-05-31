@@ -28,7 +28,5 @@ public class Quantity
 
     // Returns a string representation of the quantity
     @Override
-    public String toString() {
-        return amount + " " + unit;
-    }
+    public String toString() { return amount + " " + unit; }
 }

@@ -12,7 +12,6 @@ public class sort
                 list[i] = list[i + 1];
                 list[i + 1] = temp;
                     count = count + 1;
-
             }
 
             if (count == 0)

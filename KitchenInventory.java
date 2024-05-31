@@ -3,10 +3,7 @@ import java.util.List;
 
 
 public class KitchenInventory 
-{
-    //contain functions to sort by name/quantity
-    //compare for req ingredients
-    
+{    
     private List<Ingredient> ingredients;
 
     public KitchenInventory() { this.ingredients = new ArrayList<>(); }
@@ -16,13 +13,11 @@ public class KitchenInventory
     { 
         for (Ingredient existingIngredient : ingredients) 
         {
-            if (existingIngredient.getName().equals(ingredient.getName()) &&
-                existingIngredient.getQuantity().getUnit().equals(ingredient.getQuantity().getUnit())) 
-
-                {
-                    existingIngredient.getQuantity().add(ingredient.getQuantity().getAmount()); // Update quantity if ingredient exists with same name/unit type used
-                    return; 
-                }
+            if (existingIngredient.getName().equals(ingredient.getName()) && existingIngredient.getQuantity().getUnit().equals(ingredient.getQuantity().getUnit())) 
+            {
+                existingIngredient.getQuantity().add(ingredient.getQuantity().getAmount()); // Update quantity if ingredient exists with same name/unit type used
+                return; 
+            }
         }
         ingredients.add(ingredient); // Add new ingredient if doesn't exist before
     }
@@ -34,7 +29,11 @@ public class KitchenInventory
         {
             if (ingredient.getName().equals(name)) 
             {
-                Object obj = (Object)exp;
+                ingredient.getQuantity().subtract(amount);
+
+                if (ingredient.getQuantity().getAmount() <= 0) { ingredient.remove(ingredient); }
+                
+                return;
             }
         }
     }
@@ -87,7 +86,6 @@ public class KitchenInventory
             System.out.println(QuantityList[b]);
         }
         // End of testing code
-
     }
 
 
@@ -138,16 +136,14 @@ public class KitchenInventory
                 }
             }
         }
-
-        
-    
     }
 
     // Displays a list of ingredients
     public void displayIngredients() 
     {
-        System.out.println("Ingredients in the inventory:");
-        for (Ingredient ingredient : ingredients) {
+        System.out.println("Current Ingredients in inventory:");
+        for (Ingredient ingredient : ingredients) 
+        {
             System.out.println(ingredient.getName() + " - " + ingredient.getQuantity().getAmount() + " " + ingredient.getQuantity().getUnit());
         }
     }
@@ -157,7 +153,4 @@ public class KitchenInventory
     {
 
     }
-
-    
-
 }
