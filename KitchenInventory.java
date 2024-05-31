@@ -7,27 +7,6 @@ public class KitchenInventory
     //contain functions to sort by name/quantity
     //compare for req ingredients
     
-    //Bubble sort for sorting ingredients by quantity.
-    static void bubbleSort(Quantity list[], int n)
-    {
-        int count = 0;
-
-        for (int i = 0; i < n-1; i++)
-            if(list[i].getAmount() > list[i + 1].getAmount())
-            {
-                Quantity temp = list[i];
-                list[i] = list[i + 1];
-                list[i + 1] = temp;
-                    count = count + 1;
-
-            }
-
-            if (count == 0)
-                return;
-            bubbleSort(list, n-1);
-    }
-
-
     private List<Ingredient> ingredients;
 
     public KitchenInventory() { this.ingredients = new ArrayList<>(); }
@@ -35,22 +14,29 @@ public class KitchenInventory
     // Adds an ingredient to the inventory
     public void addIngredient(Ingredient ingredient) 
     { 
-        for (Ingredient existingIngredient : ingredients) {
+        for (Ingredient existingIngredient : ingredients) 
+        {
             if (existingIngredient.getName().equals(ingredient.getName()) &&
                 existingIngredient.getQuantity().getUnit().equals(ingredient.getQuantity().getUnit())) 
 
                 {
-                    existingIngredient.getQuantity().add(ingredient.getQuantity().getAmount()); // Update quantity if ingredient exists with same name/unit stored type
-                    return;
+                    existingIngredient.getQuantity().add(ingredient.getQuantity().getAmount()); // Update quantity if ingredient exists with same name/unit type used
+                    return; 
                 }
         }
-        ingredients.add(ingredient); // Add new ingredient
+        ingredients.add(ingredient); // Add new ingredient if doesn't exist before
     }
 
     // Removes a specified quantity of an ingredient from the inventory
     public void removeIngredient(String name, double amount) 
     { 
-        
+        for (Ingredient ingredient : ingredients) 
+        {
+            if (ingredient.getName().equals(name)) 
+            {
+                Object obj = (Object)exp;
+            }
+        }
     }
 
     // Sorts ingredients by quantity and displays them
@@ -94,7 +80,7 @@ public class KitchenInventory
 
 
         //Bubble Sorts QUANTITY from low to high amount. Then prints the sorted list.
-        bubbleSort(QuantityList, 5);
+        sort.bubbleSort(QuantityList, 5);
         System.out.println("Ingredients Sorted (Low to High):");
         for (int b = 0; b < QuantityList.length; b++)
         {
