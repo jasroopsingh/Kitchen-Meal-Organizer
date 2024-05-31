@@ -25,8 +25,10 @@ public class Meal
     public void addIngredient(Ingredient ingredient) { requiredIngredients.add(ingredient); // Add ingredient to list }
 
     // Returns the list of required ingredients
-    public getRequiredIngredients(List<Ingredient>) //erroring
-    { return requiredIngredients; } //erroring
+    public List<Ingredient> getRequiredIngredients() 
+    {
+        return this.requiredIngredients;
+    }
 
     // Returns a string representation of the meal and its required ingredients
     @Override
