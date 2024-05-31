@@ -22,7 +22,7 @@ public class Meal
     public String getName() { return name; }
 
     // Adds an ingredient to the meal's required ingredients
-    public void addIngredient(Ingredient ingredient) { requiredIngredients.add(ingredient); // Add ingredient to list }
+    public void addIngredient(Ingredient ingredient) { requiredIngredients.add(ingredient);} // Add ingredient to list }
 
     // Returns the list of required ingredients
     public List<Ingredient> getRequiredIngredients()  

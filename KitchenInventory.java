@@ -128,7 +128,7 @@ public class KitchenInventory
         {
             for(int j = i + 1; j < n; j++)
             {
-                if (sortIngredients[i].compareTo(sortIngredients[j]) > 0) //Compare to cannot compare ingredients
+                if (sortIngredients[i].getName().compareTo(sortIngredients[j].getName()) > 0) //Compare to cannot compare ingredients
                 {
                     temp = sortIngredients[i];
                     sortIngredients[i] = sortIngredients[j];
@@ -136,6 +136,13 @@ public class KitchenInventory
                 }
             }
         }
+
+        System.out.println("Ingredients sorted by name:");
+        for (int i = 0; i < n; i++)
+        {
+            System.out.println(sortIngredients[i]);
+        }
+    
     }
 
     // Displays a list of ingredients
