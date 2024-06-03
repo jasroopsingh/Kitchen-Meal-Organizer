@@ -44,7 +44,6 @@ public class KitchenInventory
 
         //List holding the quantity of the ingredients
         List<Ingredient> QuantitySortList = ingredients;
-        System.out.println(QuantitySortList);
 
         //Bubble Sorts QUANTITY from low to high amount. Then prints the sorted list.
         sort.bubbleSort(QuantitySortList, QuantitySortList.size());
@@ -61,8 +60,6 @@ public class KitchenInventory
     public void sortByName() 
     {
         List<Ingredient> sortIngredients = ingredients;
-        System.out.println(sortIngredients);
-
 
         //sorting by name test
         int n = sortIngredients.size();
