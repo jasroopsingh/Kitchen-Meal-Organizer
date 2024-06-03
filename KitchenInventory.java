@@ -51,31 +51,31 @@ public class KitchenInventory
         // These lines declare an ingredient and their quantity.
         Quantity tomatoQuantity = new Quantity(10, "Tomatoes");
         Ingredient tomato = new Ingredient("Tomatoes", tomatoQuantity);
-        QuantityList[0] = tomatoQuantity;
+        //QuantityList[0] = tomatoQuantity;
 
 
         //Potato
         Quantity potatoQuantity = new Quantity(15, "Potatoes");
         Ingredient potato = new Ingredient("Potatoes", potatoQuantity);
-        QuantityList[1] = potatoQuantity;
+        //QuantityList[1] = potatoQuantity;
 
 
         //Radish
         Quantity radishQuantity = new Quantity(2, "Radishes");
         Ingredient radish = new Ingredient("Sliced Radish", radishQuantity);
-        QuantityList[2] = radishQuantity;
+        //QuantityList[2] = radishQuantity;
 
 
         //Carrot
         Quantity carrotQuantity = new Quantity(4, "Carrots");
         Ingredient carrot = new Ingredient("Carrot", carrotQuantity);
-        QuantityList[3] = carrotQuantity;
+        //QuantityList[3] = carrotQuantity;
 
 
         //Ginger
         Quantity gingerQuantity = new Quantity(5, "Ginger Roots");
         Ingredient ginger = new Ingredient("Ginger root", gingerQuantity);
-        QuantityList[4] = gingerQuantity;
+        //QuantityList[4] = gingerQuantity;
 
 
         //Bubble Sorts QUANTITY from low to high amount. Then prints the sorted list.
@@ -92,47 +92,50 @@ public class KitchenInventory
         // Sorts ingredients by name and displays them
     public void sortByName() 
     {
-        Ingredient[] sortIngredients = new Ingredient[5];
+        List<Ingredient> sortIngredients = ingredients;
 
         // Testing lines, these lines declare an ingredient and their quality
         Quantity tomatoQuantity = new Quantity(10, "Tomatoes");
         Ingredient tomato = new Ingredient("Tomatoes", tomatoQuantity);
-        sortIngredients[0] = tomato;
+        sortIngredients.add(tomato);
 
         //Potato
         Quantity potatoQuantity = new Quantity(15, "Potatoes");
         Ingredient potato = new Ingredient("Potatoes", potatoQuantity);
-        sortIngredients[1] = potato;      
+        sortIngredients.add(potato);      
 
         //Radish
         Quantity radishQuantity = new Quantity(5, "Radishes");
         Ingredient radish = new Ingredient("Sliced Radish", radishQuantity);
-        sortIngredients[2] = radish;
+        sortIngredients.add(radish);
 
         //Carrot
         Quantity carrotQuantity = new Quantity(5, "Carrots");
         Ingredient carrot = new Ingredient("Carrot", carrotQuantity);
-        sortIngredients[3] = carrot;
+        sortIngredients.add(carrot);
 
         //Ginger
         Quantity gingerQuantity = new Quantity(5, "Ginger Roots");
         Ingredient ginger = new Ingredient("Ginger root", gingerQuantity);
-        sortIngredients[4] = ginger;
+        sortIngredients.add(ginger);
 
 
         //sorting by name test
-        int n = sortIngredients.length;
+        int n = sortIngredients.size();
         Ingredient temp = null;
 
         for(int i = 0; i < n; i++)
         {
             for(int j = i + 1; j < n; j++)
             {
-                if (sortIngredients[i].getName().compareTo(sortIngredients[j].getName()) > 0) //Compare to cannot compare ingredients
+                //Gets the item at position i & j in the sortIngredients list, then gets the ingredientname.
+                if (sortIngredients.get(i).getName().compareTo(sortIngredients.get(j).getName()) > 0) 
                 {
-                    temp = sortIngredients[i];
-                    sortIngredients[i] = sortIngredients[j];
-                    sortIngredients[j] = temp;
+                    temp = sortIngredients.get(i);
+                    //sortIngredients.get(i) = sortIngredients.get(j);
+                    sortIngredients.set(i, sortIngredients.get(j));
+                    //sortIngredients[j] = temp;
+                    sortIngredients.set(j, temp);
                 }
             }
         }
@@ -140,7 +143,7 @@ public class KitchenInventory
         System.out.println("Ingredients sorted by name:");
         for (int i = 0; i < n; i++)
         {
-            System.out.println(sortIngredients[i]);
+            System.out.println(sortIngredients.get(i));
         }
     
     }
