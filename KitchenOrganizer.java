@@ -76,7 +76,23 @@ public class KitchenOrganizer
         System.out.println("Enter Name of Ingredient to remove: ");
         String remName = scanner.nextLine();
         System.out.println("Enter Quantity: ");
-        Double remAmmount = Double.parseDouble(scanner.nextLine());
+        Double remAmount = Double.parseDouble(scanner.nextLine());
+
+        Ingredient ingredientToRemove = remName;
+        try 
+        {
+            if (remAmount <= 0)
+            {
+                System.out.println("Quantity much be greater than zero");
+                return;
+            }
+            
+            double currentQuantity = ingredientToRemove.getQuantity().getAmount();
+            if (remAmount > currentQuantity) 
+            {
+                System.out.println("Not enough quantity in inventory to remove. Available quantity: " + currentQuantity);
+                return;
+            }
 
         inventory.removeIngredient(remName, remAmmount);
 
