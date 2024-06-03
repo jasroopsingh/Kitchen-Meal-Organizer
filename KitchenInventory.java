@@ -43,8 +43,9 @@ public class KitchenInventory
     {
 
         //List holding the quantity of the ingredients
-        Quantity[] QuantityList;
-        QuantityList = new Quantity[5];
+        List<Ingredient> QuantitySortList = ingredients;
+        //Quantity[] QuantityList;
+        //QuantityList = new Quantity[5];
 
 
         // Testing Lines:
@@ -79,11 +80,11 @@ public class KitchenInventory
 
 
         //Bubble Sorts QUANTITY from low to high amount. Then prints the sorted list.
-        sort.bubbleSort(QuantityList, 5);
+        sort.bubbleSort(QuantitySortList, 5);
         System.out.println("Ingredients Sorted (Low to High):");
-        for (int b = 0; b < QuantityList.length; b++)
+        for (int b = 0; b < QuantitySortList.size(); b++)
         {
-            System.out.println(QuantityList[b]);
+            System.out.println(QuantitySortList.get(b));
         }
         // End of testing code
     }
@@ -132,9 +133,7 @@ public class KitchenInventory
                 if (sortIngredients.get(i).getName().compareTo(sortIngredients.get(j).getName()) > 0) 
                 {
                     temp = sortIngredients.get(i);
-                    //sortIngredients.get(i) = sortIngredients.get(j);
                     sortIngredients.set(i, sortIngredients.get(j));
-                    //sortIngredients[j] = temp;
                     sortIngredients.set(j, temp);
                 }
             }

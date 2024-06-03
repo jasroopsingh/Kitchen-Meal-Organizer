@@ -1,21 +1,24 @@
+import java.util.List;
+
 public class sort 
 {
     //Bubble sort for sorting ingredients by quantity.
-    public static void bubbleSort(Quantity list[], int n)
+    public static void bubbleSort(List<Ingredient> quantitySortList, int n)
     {
         int count = 0;
 
         for (int i = 0; i < n-1; i++)
-            if(list[i].getAmount() > list[i + 1].getAmount())
+            // in quantitySortList, gets the quantity and amount of the item at position i & i + 1 and compares it
+            if(quantitySortList.get(i).getQuantity().getAmount() > quantitySortList.get(i + 1).getQuantity().getAmount())
             {
-                Quantity temp = list[i];
-                list[i] = list[i + 1];
-                list[i + 1] = temp;
+                Ingredient temp = quantitySortList.get(i);
+                quantitySortList.set(i, quantitySortList.get(i + 1));
+                quantitySortList.set(i + 1, temp);
                     count = count + 1;
             }
 
             if (count == 0)
                 return;
-            bubbleSort(list, n-1);
+            bubbleSort(quantitySortList, n-1);
     }
 }
