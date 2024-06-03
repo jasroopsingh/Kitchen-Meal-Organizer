@@ -25,10 +25,7 @@ public class Meal
     public void addIngredient(Ingredient ingredient) { requiredIngredients.add(ingredient);} // Add ingredient to list }
 
     // Returns the list of required ingredients
-    public List<Ingredient> getRequiredIngredients()  
-    { 
-        return this.requiredIngredients; 
-    }
+    public List<Ingredient> getRequiredIngredients() { return this.requiredIngredients; }
 
     // Returns a string representation of the meal and its required ingredients
     @Override
@@ -37,10 +34,7 @@ public class Meal
         StringBuilder sb = new StringBuilder();
         sb.append(name).append(" requires:\n");
 
-        for (Ingredient ingredient : requiredIngredients) 
-        {
-            sb.append(ingredient).append("\n");
-        }
+        for (Ingredient ingredient : requiredIngredients) { sb.append(ingredient).append("\n"); }
         
         return sb.toString();
     }

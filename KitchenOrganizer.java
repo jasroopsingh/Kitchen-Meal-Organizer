@@ -94,18 +94,46 @@ public class KitchenOrganizer
                 return;
             }
 
-        inventory.removeIngredient(remName, remAmmount);
+            inventory.removeIngredient(remName, remAmount);
+            inventory.displayIngredients();
+        }
 
-        System.out.println("The Ingredient has been removed.");
-
-        inventory.displayIngredients();
+        finally 
+        {
+            // This block will always execute regardless of whether an exception occurred
+            System.out.println("Operation completed.");
+            System.out.println("The Ingredient has been removed.");
+        }
     }
 
 
 
     // Handles adding a meal with multiple ingredients
-    private static void addMeal(Scanner scanner) { } //done to exit adding meal. Use true loop with break statement?
+    private static void addMeal(Scanner scanner) 
+    { 
+        //Use true loop with break statement?
+        
+        System.out.print("Enter meal name: ");
+        String mealName = scanner.nextLine(); // Read meal name
+        meal = new Meal(mealName); // Create a new meal
 
+        // Loop to add ingredients to the meal
+        while (true) {
+            System.out.print("Enter ingredient name (or 'done' to finish): ");
+            String ingredientName = scanner.nextLine(); 
+
+            if (ingredientName.equals("done")) break; // Exit loop if done
+
+            System.out.print("Enter quantity: ");
+            double quantity = Double.parseDouble(scanner.nextLine()); 
+            System.out.print("Enter unit: ");
+            String unit = scanner.nextLine(); 
+
+            meal.addIngredient(new Ingredient(ingredientName, new Quantity(quantity, unit))); // Add ingredient to meal
+        }
+
+        System.out.println("Meal added.");
+    } 
 
 
     // calls fucntion in inverntory that will compare ingredients in inventory with ones required for meal

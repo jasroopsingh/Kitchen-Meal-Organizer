@@ -149,15 +149,32 @@ public class KitchenInventory
     public void displayIngredients() 
     {
         System.out.println("Current Ingredients in inventory:");
-        for (Ingredient ingredient : ingredients) 
-        {
-            System.out.println(ingredient.getName() + " - " + ingredient.getQuantity().getAmount() + " " + ingredient.getQuantity().getUnit());
-        }
+
+        for (Ingredient ingredient : ingredients) { System.out.println(ingredient.getName() + " - " + ingredient.getQuantity().getAmount() + " " + ingredient.getQuantity().getUnit()); }
     }
 
     // Compares the inventory with the ingredients required for a meal
     public void compareIngredients(Meal meal) 
     {
-
+        System.out.println("Comparing ingredients for: " + meal.getName());
+        for (Ingredient requiredIngredient : meal.getRequiredIngredients()) 
+        {
+            boolean foundReq = false;
+            for (Ingredient curIngredient : ingredients) 
+            {
+                if (curIngredient.getName().equals(requiredIngredient.getName()) && curIngredient.getQuantity().getUnit().equals(requiredIngredient.getQuantity().getUnit())) 
+                {
+                    foundReq = true;
+                    break;
+                }
+                else if (curIngredient.getQuantity().getAmount() < requiredIngredient.getQuantity().getAmount()) 
+                {
+                    System.out.println("You need " + (requiredIngredient.getQuantity().getAmount() - curIngredient.getQuantity().getAmount()) + " more " + requiredIngredient.getQuantity().getUnit() + " of " + requiredIngredient.getName());
+                }
+            }
+            
+            // if ingredient is not found in the inventory at all
+            if (!foundReq) { System.out.println("You need " + requiredIngredient.getQuantity().getAmount() + " " + requiredIngredient.getQuantity().getUnit() + " of " + requiredIngredient.getName()); }
+        }
     }
 }
