@@ -44,49 +44,16 @@ public class KitchenInventory
 
         //List holding the quantity of the ingredients
         List<Ingredient> QuantitySortList = ingredients;
-        //Quantity[] QuantityList;
-        //QuantityList = new Quantity[5];
-
-
-        // Testing Lines:
-        // These lines declare an ingredient and their quantity.
-        Quantity tomatoQuantity = new Quantity(10, "Tomatoes");
-        Ingredient tomato = new Ingredient("Tomatoes", tomatoQuantity);
-        //QuantityList[0] = tomatoQuantity;
-
-
-        //Potato
-        Quantity potatoQuantity = new Quantity(15, "Potatoes");
-        Ingredient potato = new Ingredient("Potatoes", potatoQuantity);
-        //QuantityList[1] = potatoQuantity;
-
-
-        //Radish
-        Quantity radishQuantity = new Quantity(2, "Radishes");
-        Ingredient radish = new Ingredient("Sliced Radish", radishQuantity);
-        //QuantityList[2] = radishQuantity;
-
-
-        //Carrot
-        Quantity carrotQuantity = new Quantity(4, "Carrots");
-        Ingredient carrot = new Ingredient("Carrot", carrotQuantity);
-        //QuantityList[3] = carrotQuantity;
-
-
-        //Ginger
-        Quantity gingerQuantity = new Quantity(5, "Ginger Roots");
-        Ingredient ginger = new Ingredient("Ginger root", gingerQuantity);
-        //QuantityList[4] = gingerQuantity;
-
+        System.out.println(QuantitySortList);
 
         //Bubble Sorts QUANTITY from low to high amount. Then prints the sorted list.
-        sort.bubbleSort(QuantitySortList, 5);
+        sort.bubbleSort(QuantitySortList, QuantitySortList.size());
         System.out.println("Ingredients Sorted (Low to High):");
         for (int b = 0; b < QuantitySortList.size(); b++)
         {
             System.out.println(QuantitySortList.get(b));
         }
-        // End of testing code
+
     }
 
 
@@ -94,31 +61,7 @@ public class KitchenInventory
     public void sortByName() 
     {
         List<Ingredient> sortIngredients = ingredients;
-
-        // Testing lines, these lines declare an ingredient and their quality
-        Quantity tomatoQuantity = new Quantity(10, "Tomatoes");
-        Ingredient tomato = new Ingredient("Tomatoes", tomatoQuantity);
-        sortIngredients.add(tomato);
-
-        //Potato
-        Quantity potatoQuantity = new Quantity(15, "Potatoes");
-        Ingredient potato = new Ingredient("Potatoes", potatoQuantity);
-        sortIngredients.add(potato);      
-
-        //Radish
-        Quantity radishQuantity = new Quantity(5, "Radishes");
-        Ingredient radish = new Ingredient("Sliced Radish", radishQuantity);
-        sortIngredients.add(radish);
-
-        //Carrot
-        Quantity carrotQuantity = new Quantity(5, "Carrots");
-        Ingredient carrot = new Ingredient("Carrot", carrotQuantity);
-        sortIngredients.add(carrot);
-
-        //Ginger
-        Quantity gingerQuantity = new Quantity(5, "Ginger Roots");
-        Ingredient ginger = new Ingredient("Ginger root", gingerQuantity);
-        sortIngredients.add(ginger);
+        System.out.println(sortIngredients);
 
 
         //sorting by name test
