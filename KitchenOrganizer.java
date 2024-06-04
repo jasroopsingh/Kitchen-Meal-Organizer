@@ -78,7 +78,7 @@ public class KitchenOrganizer
         System.out.println("Enter Quantity: ");
         Double remAmount = Double.parseDouble(scanner.nextLine());
 
-        Ingredient ingredientToRemove = remName;
+        Ingredient ingredientToRemove = inventory.getIngredient(remName);
         try 
         {
             if (remAmount <= 0)
@@ -139,6 +139,8 @@ public class KitchenOrganizer
     // calls fucntion in inverntory that will compare ingredients in inventory with ones required for meal
     private static void compareWithMeal(Scanner scanner) 
     {
+
+
         if (meal == null) // Check if any meal has been added yet
         {
             System.out.println("No meal added yet.");

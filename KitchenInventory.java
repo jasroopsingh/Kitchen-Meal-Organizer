@@ -38,6 +38,19 @@ public class KitchenInventory
         }
     }
 
+    public Ingredient getIngredient(String name) 
+    {
+        for (Ingredient ingredient : ingredients) 
+        {
+            if (ingredient.getName().equals(name)) 
+            {
+                return ingredient;
+            }
+        }
+        return null; // Or throw an exception if the ingredient is not found
+    }
+    
+
     // Sorts ingredients by quantity and displays them
     public void sortByQuantity() 
     {

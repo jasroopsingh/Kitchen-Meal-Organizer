@@ -24,10 +24,10 @@ public class Ingredient
     @Override
     public String toString() { return name + ": " + quantity; }
 
-    /*public void remove(Ingredient ingredient) 
+    public void remove(Ingredient ingredient) 
     {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'remove'");
     }
-    */
+    
 }
