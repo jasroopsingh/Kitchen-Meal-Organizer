@@ -140,7 +140,6 @@ public class KitchenOrganizer
     private static void compareWithMeal(Scanner scanner) 
     {
 
-
         if (meal == null) // Check if any meal has been added yet
         {
             System.out.println("No meal added yet.");
