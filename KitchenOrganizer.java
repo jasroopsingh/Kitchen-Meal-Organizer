@@ -51,8 +51,8 @@ public class KitchenOrganizer
         System.out.println("7. Exit");
         System.out.println("===========================================\n");
     }
-
-
+ //test
+System.out.println
     
     // Handles adding an ingredient to the inventory
     private static void addIngredient(Scanner scanner) 
