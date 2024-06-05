@@ -122,10 +122,7 @@ public class KitchenInventory
                     foundReq = true;
                     break;
                 }
-                else if (curIngredient.getQuantity().getAmount() < requiredIngredient.getQuantity().getAmount()) 
-                {
-                    System.out.println("You need " + (requiredIngredient.getQuantity().getAmount() - curIngredient.getQuantity().getAmount()) + " more " + requiredIngredient.getQuantity().getUnit() + " of " + requiredIngredient.getName());
-                }
+                
             }
             
             // if ingredient is not found in the inventory at all
