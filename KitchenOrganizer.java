@@ -107,13 +107,14 @@ public class KitchenOrganizer
 
             inventory.removeIngredient(remName, remAmount);
             inventory.displayIngredients();
-        }
 
-        finally 
-        {
             // This block will always execute regardless of whether an exception occurred
             System.out.println("Operation completed.");
+            System.out.println("The Ingredient has been removed.");
+
         }
+
+        finally {}
     }
 
 
