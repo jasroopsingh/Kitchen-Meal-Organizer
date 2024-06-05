@@ -51,16 +51,30 @@ public class KitchenOrganizer
         System.out.println("7. Exit");
         System.out.println("===========================================\n");
     }
- //test
-System.out.println
+
     
     // Handles adding an ingredient to the inventory
     private static void addIngredient(Scanner scanner) 
     {
         System.out.println("Enter Name of Ingredient: ");
         String name = scanner.nextLine();
-        System.out.println("Enter Quantity: ");
-        Double quantity = Double.parseDouble(scanner.nextLine());
+
+        //Handles input to make sure that the user enters a number for quanitty (so sorting methos can work properly)
+        double quantity = 0;
+        boolean validInput = false;
+        while (!validInput) 
+        {
+            System.out.println("Enter Quantity: ");
+            try 
+            {
+                quantity = Double.parseDouble(scanner.nextLine());
+                validInput = true;
+            } 
+            catch (NumberFormatException e) 
+            {
+                System.out.println("Invalid input. Please enter a valid number for quantity.");
+            }
+        }
         System.out.println("Enter Unit: ");
         String unit = scanner.nextLine();
 
@@ -108,9 +122,6 @@ System.out.println
             inventory.removeIngredient(remName, remAmount);
             inventory.displayIngredients();
 
-            // This block will always execute regardless of whether an exception occurred
-            System.out.println("Operation completed.");
-            System.out.println("The Ingredient has been removed.");
 
         }
 
