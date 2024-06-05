@@ -37,7 +37,7 @@ public class KitchenInventory
             }
         }
     }
-
+    // self explanitory
     public Ingredient getIngredient(String name) 
     {
         for (Ingredient ingredient : ingredients) 
@@ -74,7 +74,7 @@ public class KitchenInventory
     {
         List<Ingredient> sortIngredients = ingredients;
 
-        //sorting by name test
+        //sorting by name code
         int n = sortIngredients.size();
         Ingredient temp = null;
 
@@ -91,7 +91,7 @@ public class KitchenInventory
                 }
             }
         }
-
+        // Prints out sorted list
         System.out.println("Ingredients sorted by name:");
         for (int i = 0; i < n; i++)
         {

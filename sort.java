@@ -11,12 +11,13 @@ public class sort
             // in quantitySortList, gets the quantity and amount of the item at position i & i + 1 and compares it
             if(quantitySortList.get(i).getQuantity().getAmount() > quantitySortList.get(i + 1).getQuantity().getAmount())
             {
+                //Swaps positions of items in the list
                 Ingredient temp = quantitySortList.get(i);
                 quantitySortList.set(i, quantitySortList.get(i + 1));
                 quantitySortList.set(i + 1, temp);
                     count = count + 1;
             }
-
+            // if the count is 0, return.
             if (count == 0)
                 return;
             bubbleSort(quantitySortList, n-1);
