@@ -5,8 +5,13 @@ import java.util.List;
 public class KitchenInventory 
 {    
     private List<Ingredient> ingredients;
+    private List<Meal> meals;
 
-    public KitchenInventory() { this.ingredients = new ArrayList<>(); }
+    public KitchenInventory() 
+    { 
+        this.ingredients = new ArrayList<>(); 
+        this.meals = new ArrayList<>();
+    }
 
     // Adds an ingredient to the inventory
     public void addIngredient(Ingredient ingredient) 
@@ -108,27 +113,56 @@ public class KitchenInventory
         for (Ingredient ingredient : ingredients) { System.out.println(ingredient.getName() + " - " + ingredient.getQuantity().getAmount() + " " + ingredient.getQuantity().getUnit()); }
     }
 
-    // Compares the inventory with the ingredients required for a meal
+
+    // Add a meal to the inventory
+    public void addMeal(Meal meal) 
+    {
+        meals.add(meal);
+    }
+
+
+    // Get a specific meal from the inventory
+    public Meal getMeal(String mealName) 
+    {
+        for (Meal meal : meals) 
+        {
+            if (meal.getName().equals(mealName)) 
+            {
+                return meal;
+            }
+        }
+        return null; // Or handle appropriately if meal is not found
+    }
+
+
+    // Compare the inventory with the needed ingredients for a meal
     public void compareIngredients(Meal meal) 
     {
         System.out.println("Comparing ingredients for: " + meal.getName());
+        
         for (Ingredient requiredIngredient : meal.getRequiredIngredients()) 
         {
             boolean foundReq = false;
+
             for (Ingredient curIngredient : ingredients) 
             {
-                if (curIngredient.getName().equals(requiredIngredient.getName()) && curIngredient.getQuantity().getUnit().equals(requiredIngredient.getQuantity().getUnit())) 
+                if (curIngredient.getName().equalsIgnoreCase(requiredIngredient.getName()) && curIngredient.getQuantity().getUnit().equalsIgnoreCase(requiredIngredient.getQuantity().getUnit())) 
                 {
                     foundReq = true;
-                    break;
+                    if (curIngredient.getQuantity().getAmount() < requiredIngredient.getQuantity().getAmount()) 
+                    {
+                        // Additional amount needed
+                        System.out.println("You need " + (requiredIngredient.getQuantity().getAmount() - curIngredient.getQuantity().getAmount()) + " more " 
+                            + requiredIngredient.getQuantity().getUnit() + " of " + requiredIngredient.getName());
+                    }
                 }
-                // if ingredient is not found in the inventory at all
-                if (!foundReq) 
-                { System.out.println("You need " + requiredIngredient.getQuantity().getAmount() + " " + requiredIngredient.getQuantity().getUnit() + " of " + requiredIngredient.getName()); }
             }
-            
-            // if ingredient is not found in the inventory at all or there's not enough of ingredient 
-            if (!foundReq) { System.out.println("You need " + requiredIngredient.getQuantity().getAmount() + " " + requiredIngredient.getQuantity().getUnit() + " of " + requiredIngredient.getName()); }
+
+            // Ingredient not found or insufficient quantity
+            if (!foundReq) 
+            {
+                System.out.println("You need " + requiredIngredient.getQuantity().getAmount() + " " + requiredIngredient.getQuantity().getUnit() + " of " + requiredIngredient.getName());
+            }
         }
     }
 }

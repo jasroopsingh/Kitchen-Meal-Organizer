@@ -1,11 +1,13 @@
 // Main File to Run Code
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class KitchenOrganizer 
 {
     static KitchenInventory inventory = new KitchenInventory(); // Inventory instance to manage ingredients (+/-)
-    private static Meal meal; // Meal instance to store meal
+    private static List<Meal> meals = new ArrayList<>();
 
     public static void main(String[] args) 
     {
@@ -98,7 +100,6 @@ public class KitchenOrganizer
             return;
         }
 
-    
         System.out.println("Enter Quantity: ");
         Double remAmount = Double.parseDouble(scanner.nextLine());
         
@@ -121,7 +122,7 @@ public class KitchenOrganizer
             inventory.removeIngredient(remName, remAmount);
             inventory.displayIngredients();
         }
-        
+
         finally {}
     }
 
@@ -134,7 +135,8 @@ public class KitchenOrganizer
         
         System.out.print("Enter meal name: ");
         String mealName = scanner.nextLine(); // Read meal name
-        meal = new Meal(mealName); // Create a new meal
+        
+        Meal newMeal = new Meal(mealName);
 
         // Loop to add ingredients to the meal
         while (true) {
@@ -145,31 +147,34 @@ public class KitchenOrganizer
 
             System.out.print("Enter quantity: ");
             double quantity = Double.parseDouble(scanner.nextLine()); 
+            
             System.out.print("Enter unit: ");
             String unit = scanner.nextLine(); 
 
-            meal.addIngredient(new Ingredient(ingredientName, new Quantity(quantity, unit))); // Add ingredient to meal
+            newMeal.addIngredient(new Ingredient(ingredientName, new Quantity(quantity, unit))); // Add ingredient to meal
         }
 
-        System.out.println("Meal added.");
+        inventory.addMeal(newMeal);
+        meals.add(newMeal);
+        System.out.println("Meal added."); 
     } 
 
 
-    // calls fucntion in inverntory that will compare ingredients in inventory with ones required for meal
+    // Compare inventory with all stored meals in the List
     private static void compareWithMeal(Scanner scanner) 
     {
-        if (meal == null) // Check if any meal has been added yet
-        {
-            System.out.println("No meal added yet.");
-            return;
-        }
-
         System.out.print("Enter meal name to check ingredient availability: ");
         String mealName = scanner.nextLine();
 
-        Meal userMeal = new Meal(mealName); // Create a user-defined meal for comparison
-
-        inventory.compareIngredients(userMeal); // Compare inventory with meal ingredients
+        for (Meal meal : meals) 
+        {
+            if (meal.getName().equalsIgnoreCase(mealName)) 
+            {
+                inventory.compareIngredients(meal);
+                return;
+            }
+        }
+        System.out.println("Meal not found in inventory.");
     }
 
 }
