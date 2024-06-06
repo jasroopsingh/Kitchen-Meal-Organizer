@@ -1,7 +1,6 @@
 // Main File to Run Code
 
-import java.util.List;
-import java.util.Scanner; // get user input
+import java.util.Scanner;
 
 public class KitchenOrganizer 
 {
@@ -106,7 +105,7 @@ public class KitchenOrganizer
         //Checks if ingredient amount is not zero and that there exists enough of the ingredient to remove that amt
         try 
         {
-            if (remAmount <= 0)
+            if (remAmount < 0)
             {
                 System.out.println("Quantity much be greater than zero");
                 return;
@@ -121,10 +120,8 @@ public class KitchenOrganizer
 
             inventory.removeIngredient(remName, remAmount);
             inventory.displayIngredients();
-
-
         }
-
+        
         finally {}
     }
 

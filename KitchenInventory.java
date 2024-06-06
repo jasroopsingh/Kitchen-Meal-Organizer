@@ -31,7 +31,7 @@ public class KitchenInventory
             {
                 ingredient.getQuantity().subtract(amount);
 
-                if (ingredient.getQuantity().getAmount() <= 0) { ingredient.remove(ingredient); }
+                if (ingredient.getQuantity().getAmount() <= 0) { ingredients.remove(ingredient); }
                 
                 return;
             }
@@ -122,11 +122,11 @@ public class KitchenInventory
                     foundReq = true;
                     break;
                 }
-                
+                // if ingredient is not found in the inventory at all
+                if (!foundReq) 
+                { System.out.println("You need " + requiredIngredient.getQuantity().getAmount() + " " + requiredIngredient.getQuantity().getUnit() + " of " + requiredIngredient.getName()); }
             }
-            
-            // if ingredient is not found in the inventory at all
-            if (!foundReq) { System.out.println("You need " + requiredIngredient.getQuantity().getAmount() + " " + requiredIngredient.getQuantity().getUnit() + " of " + requiredIngredient.getName()); }
+                
         }
     }
 }

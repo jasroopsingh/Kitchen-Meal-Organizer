@@ -23,11 +23,4 @@ public class Ingredient
     // Returns a string representation of the ingredient
     @Override
     public String toString() { return name + ": " + quantity; }
-
-    public void remove(Ingredient ingredient) 
-    {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'remove'");
-    }
-    
 }
