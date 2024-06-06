@@ -167,7 +167,12 @@ public class KitchenOrganizer
             return;
         }
 
-        inventory.compareIngredients(meal); // Compare inventory with meal ingredients
+        System.out.print("Enter meal name to check ingredient availability: ");
+        String mealName = scanner.nextLine();
+
+        Meal userMeal = new Meal(mealName); // Create a user-defined meal for comparison
+
+        inventory.compareIngredients(userMeal); // Compare inventory with meal ingredients
     }
 
 }
