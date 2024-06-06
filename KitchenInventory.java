@@ -37,7 +37,7 @@ public class KitchenInventory
             }
         }
     }
-    // self explanitory
+    // Returns the ingredient
     public Ingredient getIngredient(String name) 
     {
         for (Ingredient ingredient : ingredients) 
@@ -125,7 +125,7 @@ public class KitchenInventory
                 
             }
             
-            // if ingredient is not found in the inventory at all
+            // if ingredient is not found in the inventory at all or there's not enough of ingredient 
             if (!foundReq) { System.out.println("You need " + requiredIngredient.getQuantity().getAmount() + " " + requiredIngredient.getQuantity().getUnit() + " of " + requiredIngredient.getName()); }
         }
     }
