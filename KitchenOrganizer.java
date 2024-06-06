@@ -1,5 +1,6 @@
 // Main File to Run Code
 
+import java.util.List;
 import java.util.Scanner; // get user input
 
 public class KitchenOrganizer 
@@ -28,7 +29,7 @@ public class KitchenOrganizer
                 case "6" -> compareWithMeal(scanner); // Compare inventory with meal ingredients
                 case "7" -> { System.out.println("Exiting..."); return; } // Exit the application
 
-                default -> System.out.println("Invalid option, please try again. Enter # corresponding to a Memu option."); // Handle invalid option
+                default -> System.out.println("Invalid option, please try again. Enter # corresponding to a Menu option."); // Handle invalid option
             }
         }
     }
@@ -51,15 +52,29 @@ public class KitchenOrganizer
         System.out.println("===========================================\n");
     }
 
-
     
     // Handles adding an ingredient to the inventory
     private static void addIngredient(Scanner scanner) 
     {
         System.out.println("Enter Name of Ingredient: ");
         String name = scanner.nextLine();
-        System.out.println("Enter Quantity: ");
-        Double quantity = Double.parseDouble(scanner.nextLine());
+
+        //Handles input to make sure that the user enters a number for quanitty (so sorting methos can work properly)
+        double quantity = 0;
+        boolean validInput = false;
+        while (!validInput) 
+        {
+            System.out.println("Enter Quantity: ");
+            try 
+            {
+                quantity = Double.parseDouble(scanner.nextLine());
+                validInput = true;
+            } 
+            catch (NumberFormatException e) 
+            {
+                System.out.println("Invalid input. Please enter a valid number for quantity.");
+            }
+        }
         System.out.println("Enter Unit: ");
         String unit = scanner.nextLine();
 
@@ -75,10 +90,20 @@ public class KitchenOrganizer
     { 
         System.out.println("Enter Name of Ingredient to remove: ");
         String remName = scanner.nextLine();
+        Ingredient ingreToRemove = inventory.getIngredient(remName);
+        
+        //Checks if ingredient exists in the ingredients list
+        if (ingreToRemove == null)
+        {
+            System.out.println("This ingredient does not exist");
+            return;
+        }
+
+    
         System.out.println("Enter Quantity: ");
         Double remAmount = Double.parseDouble(scanner.nextLine());
-
-        Ingredient ingredientToRemove = inventory.getIngredient(remName);
+        
+        //Checks if ingredient amount is not zero and that there exists enough of the ingredient to remove that amt
         try 
         {
             if (remAmount <= 0)
@@ -87,7 +112,7 @@ public class KitchenOrganizer
                 return;
             }
             
-            double currentQuantity = ingredientToRemove.getQuantity().getAmount();
+            double currentQuantity = ingreToRemove.getQuantity().getAmount();
             if (remAmount > currentQuantity) 
             {
                 System.out.println("Not enough quantity in inventory to remove. Available quantity: " + currentQuantity);
@@ -97,9 +122,6 @@ public class KitchenOrganizer
             inventory.removeIngredient(remName, remAmount);
             inventory.displayIngredients();
 
-            // This block will always execute regardless of whether an exception occurred
-            System.out.println("Operation completed.");
-            System.out.println("The Ingredient has been removed.");
 
         }
 
@@ -139,7 +161,6 @@ public class KitchenOrganizer
     // calls fucntion in inverntory that will compare ingredients in inventory with ones required for meal
     private static void compareWithMeal(Scanner scanner) 
     {
-
         if (meal == null) // Check if any meal has been added yet
         {
             System.out.println("No meal added yet.");

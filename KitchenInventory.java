@@ -37,7 +37,7 @@ public class KitchenInventory
             }
         }
     }
-
+    // self explanitory
     public Ingredient getIngredient(String name) 
     {
         for (Ingredient ingredient : ingredients) 
@@ -74,7 +74,7 @@ public class KitchenInventory
     {
         List<Ingredient> sortIngredients = ingredients;
 
-        //sorting by name test
+        //sorting by name code
         int n = sortIngredients.size();
         Ingredient temp = null;
 
@@ -91,7 +91,7 @@ public class KitchenInventory
                 }
             }
         }
-
+        // Prints out sorted list
         System.out.println("Ingredients sorted by name:");
         for (int i = 0; i < n; i++)
         {
@@ -122,10 +122,7 @@ public class KitchenInventory
                     foundReq = true;
                     break;
                 }
-                else if (curIngredient.getQuantity().getAmount() < requiredIngredient.getQuantity().getAmount()) 
-                {
-                    System.out.println("You need " + (requiredIngredient.getQuantity().getAmount() - curIngredient.getQuantity().getAmount()) + " more " + requiredIngredient.getQuantity().getUnit() + " of " + requiredIngredient.getName());
-                }
+                
             }
             
             // if ingredient is not found in the inventory at all
